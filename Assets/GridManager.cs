@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public int size_x = 5;
-    public int size_y = 5;
-    public int size_z = 5;
+    public int size_x = 20;
+    public int size_y = 20;
+    public int size_z = 20;
     public GameObject cell_prefab;
-    private GameObject[,,] gridCells;
+    public GameObject[,,] gridCells;
 
-    void Start()
+    void Awake()
     {
         gridCells = new GameObject[size_x, size_y, size_z];
         createGrid();
@@ -30,7 +30,7 @@ public class GridManager : MonoBehaviour
                     //get attached script
                     Cell cellScript = cell.GetComponent<Cell>();
 
-                    cellScript.index = new Vector3(x, y, z);
+                    cellScript.index = new Vector3Int(x, y, z);
                     gridCells[x, y, z] = cell;
                 }
             }
