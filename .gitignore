@@ -1,0 +1,9 @@
+.vscode/
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+Library/
+Logs/
+3D_CA.sln
+Assets/TutorialInfo/
+Assets/TutorialInfo.meta
+Temp/
