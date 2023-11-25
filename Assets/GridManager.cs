@@ -26,6 +26,11 @@ public class GridManager : MonoBehaviour
                 {
                     GameObject cell = Instantiate(cell_prefab, new Vector3(x, y, z), Quaternion.identity);
                     cell.transform.parent = this.transform;
+
+                    //get attached script
+                    Cell cellScript = cell.GetComponent<Cell>();
+
+                    cellScript.index = new Vector3(x, y, z);
                     gridCells[x, y, z] = cell;
                 }
             }
