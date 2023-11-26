@@ -10,7 +10,7 @@ public class GridManager : MonoBehaviour
     public GameObject cell_prefab;
     public static GameObject[,,] gridCells;
 
-    void Awake()
+    void Start()
     {
         gridCells = new GameObject[size_x, size_y, size_z];
         createGrid();

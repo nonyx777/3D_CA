@@ -16,7 +16,8 @@ public class Cell : MonoBehaviour
     public State state;
     public Vector3Int index;
     int count;
-    void Awake()
+
+    void Start()
     {
         rendererComponent = GetComponent<Renderer>();
     }
@@ -57,7 +58,7 @@ public class Cell : MonoBehaviour
                 count++;
 
 
-        if (count == 4 || count == 3)
+        if (count == 3)
             resurrect();
         else
             kill();
