@@ -6,8 +6,8 @@ using UnityEngine.Android;
 
 public enum State
 {
-    ALIVE,
-    DEAD
+    DEAD,
+    ALIVE
 }
 
 public class Cell : MonoBehaviour
@@ -38,19 +38,19 @@ public class Cell : MonoBehaviour
         int y = index.y;
         int z = index.z;
 
-        if (x != 29)
+        if (x != 19)
             if (GridManager.gridCells[x + 1, y, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
         if (x != 0)
             if (GridManager.gridCells[x - 1, y, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
-        if (y != 29)
+        if (y != 19)
             if (GridManager.gridCells[x, y + 1, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
         if (y != 0)
             if (GridManager.gridCells[x, y - 1, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
-        if (z != 29)
+        if (z != 19)
             if (GridManager.gridCells[x, y, z + 1].GetComponent<Cell>().state == State.ALIVE)
                 count++;
         if (z != 0)
@@ -58,7 +58,7 @@ public class Cell : MonoBehaviour
                 count++;
 
 
-        if (count == 3)
+        if (count == 3 || count == 2)
             resurrect();
         else
             kill();

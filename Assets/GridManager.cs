@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    int size_x = 30;
-    int size_y = 30;
-    int size_z = 30;
+    int size_x = 20;
+    int size_y = 20;
+    int size_z = 20;
     public GameObject cell_prefab;
     public static GameObject[,,] gridCells;
 
@@ -30,10 +30,21 @@ public class GridManager : MonoBehaviour
                     //get attached script
                     Cell cellScript = cell.GetComponent<Cell>();
 
+                    //index == id
                     cellScript.index = new Vector3Int(x, y, z);
+
+                    //cell state
+                    int state_int = decideState();
+                    cellScript.state = state_int == 0 ? State.DEAD : State.ALIVE;
+
                     gridCells[x, y, z] = cell;
                 }
             }
         }
+    }
+
+    int decideState()
+    {
+        return Random.Range(0, 2);
     }
 }
