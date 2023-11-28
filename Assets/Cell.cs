@@ -25,9 +25,8 @@ public class Cell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkNeighbour();
-        
         rendererComponent.enabled = state == State.ALIVE;
+        checkNeighbour();
     }
 
     void checkNeighbour()
@@ -38,19 +37,19 @@ public class Cell : MonoBehaviour
         int y = index.y;
         int z = index.z;
 
-        if (x != 19)
+        if (x != 29)
             if (GridManager.gridCells[x + 1, y, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
         if (x != 0)
             if (GridManager.gridCells[x - 1, y, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
-        if (y != 19)
+        if (y != 29)
             if (GridManager.gridCells[x, y + 1, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
         if (y != 0)
             if (GridManager.gridCells[x, y - 1, z].GetComponent<Cell>().state == State.ALIVE)
                 count++;
-        if (z != 19)
+        if (z != 29)
             if (GridManager.gridCells[x, y, z + 1].GetComponent<Cell>().state == State.ALIVE)
                 count++;
         if (z != 0)
@@ -58,7 +57,7 @@ public class Cell : MonoBehaviour
                 count++;
 
 
-        if (count == 3 || count == 2)
+        if (count == 3 || count == 1)
             resurrect();
         else
             kill();
